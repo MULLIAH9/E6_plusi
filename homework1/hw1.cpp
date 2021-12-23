@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <valarray>
 
 using namespace std;
 
