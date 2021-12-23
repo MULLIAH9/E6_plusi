@@ -4,9 +4,8 @@
 #include <vector>
 #include <cmath>
 
-int main(int argc, char** argv) {
-    if (argc == 2) {
-        std::ifstream infile(argv[1]);
+int main() {
+        std::ifstream infile("in.txt");
 
         std::vector < std::pair < double, double >> wall;
         double h;
@@ -29,9 +28,9 @@ int main(int argc, char** argv) {
                 return 0;
             }
             if (target > size - 1) {
-                double x_obs, h_obs;
-                if (infile >> x_obs >> h_obs) {
-                   wall.push_back(std::make_pair(x_obs, h_obs));
+                double x_w, h_w;
+                if (infile >> x_w >> h_w) {
+                   wall.push_back(std::make_pair(x_w, h_w));
                     size++;
                 } else {
                     std::cout << size << std::endl;
@@ -56,5 +55,4 @@ int main(int argc, char** argv) {
                 vx = vx * (-1);
             }
         }
-    }
 }
