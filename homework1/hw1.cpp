@@ -26,7 +26,7 @@ int main() {
                 double cs=(xn*x+yn*y)/(sqrt(x*x+y*y)*sqrt(xn*xn+yn*yn));
                 if (cs-minl <= 0 && (xn*y-yn*x)>0)
                 {
-                    minl = _cos;
+                    minl = cs;
                     xr = x;
                     yr = y;
 
