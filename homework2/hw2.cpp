@@ -1,11 +1,13 @@
 #include <iostream>
 #include <fstream>
+#include <utility>
 #include <vector>
 #include <cmath>
 
 int main(int argc, char** argv) {
     if (argc == 2) {
         std::ifstream infile(argv[1]);
+
         std::vector < std::pair < double, double >> wall;
         double h;
         double x = 0;
@@ -18,6 +20,7 @@ int main(int argc, char** argv) {
         double g = -9.81;
 
         int interval = 0;
+        int size = 0;
 
         while (true) {
             int target = (vx > 0) ? interval : interval - 1;
@@ -25,14 +28,16 @@ int main(int argc, char** argv) {
                 std::cout << "0" << std::endl;
                 return 0;
             }
-            if (target > sizeof(wall) - 1) {
+            if (target > size - 1) {
                 double x_obs, h_obs;
                 if (infile >> x_obs >> h_obs) {
-                    wall.push_back(std::make_pair(x_obs, h_obs));
+                   wall.push_back(std::make_pair(x_obs, h_obs));
+                    size++;
                 } else {
-                    std::cout << sizeof(wall) << std::endl;
+                    std::cout << size << std::endl;
                     return 0;
                 }
+
             }
 
             double t = std::abs((x - wall[target].first) / vx);
@@ -45,7 +50,7 @@ int main(int argc, char** argv) {
                 std::cout << interval << std::endl;
                 return 0;
             }
-            if (h > wall[target].second) {
+            if (h > obstacles[target].second) {
                 (vx > 0) ? interval++ : interval--;
             } else {
                 vx = vx * (-1);
