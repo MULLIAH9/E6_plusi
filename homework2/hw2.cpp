@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
                 std::cout << interval << std::endl;
                 return 0;
             }
-            if (h > obstacles[target].second) {
+            if (h > wall[target].second) {
                 (vx > 0) ? interval++ : interval--;
             } else {
                 vx = vx * (-1);
