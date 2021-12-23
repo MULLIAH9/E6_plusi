@@ -23,7 +23,7 @@ int main() {
                 if(x==0 && y==0){
                     continue;
                 }
-                double cs=(xn*x+yn*y)/(sqrt(x*x+y*y)*sqrt(xn*xn+yn*yn));
+                double cs=(xn*x+yn*y)/(sqrt(x*x+y*y)*sqrt(xn*xn+yn*yn))*1000000000/1000000000;
                 if (cs-minl <= 0 && (xn*y-yn*x)>0)
                 {
                     minl = cs;
