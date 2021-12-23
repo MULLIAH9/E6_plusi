@@ -6,7 +6,7 @@
 int main(int argc, char** argv) {
     if (argc == 2) {
         std::ifstream infile(argv[1]);
-        std::vector < std::pair < double, double >> obst;
+        std::vector < std::pair < double, double >> wall;
         double h;
         double x = 0;
 
@@ -28,16 +28,16 @@ int main(int argc, char** argv) {
             if (target > size(obst) - 1) {
                 double x_obs, h_obs;
                 if (infile >> x_obs >> h_obs) {
-                    obstacles.push_back(std::make_pair(x_obs, h_obs));
+                    wall.push_back(std::make_pair(x_obs, h_obs));
                 } else {
-                    std::cout << size(obst) << std::endl;
+                    std::cout << size(wall) << std::endl;
                     return 0;
                 }
             }
 
-            double t = std::abs((x - obst[target].first) / vx);
+            double t = std::abs((x - wall[target].first) / vx);
 
-            x = obst[target].first;
+            x = wall[target].first;
             h = h + vy * t + 0.5 * g * t * t;
             vy = vy + g * t;
 
@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
                 std::cout << interval << std::endl;
                 return 0;
             }
-            if (h > obst[target].second) {
+            if (h > wall[target].second) {
                 (vx > 0) ? interval++ : interval--;
             } else {
                 vx = vx * (-1);
