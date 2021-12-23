@@ -25,12 +25,12 @@ int main(int argc, char** argv) {
                 std::cout << "0" << std::endl;
                 return 0;
             }
-            if (target > size(obst) - 1) {
+            if (target > sizeof(wall) - 1) {
                 double x_obs, h_obs;
                 if (infile >> x_obs >> h_obs) {
                     wall.push_back(std::make_pair(x_obs, h_obs));
                 } else {
-                    std::cout << size(wall) << std::endl;
+                    std::cout << sizeof(wall) << std::endl;
                     return 0;
                 }
             }
