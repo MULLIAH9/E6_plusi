@@ -10,7 +10,7 @@ const double g = -9.81;
 typedef struct Vek{
     double x;
     double y;
-}
+};
 
 
 int main(int argc, char** argv) {
