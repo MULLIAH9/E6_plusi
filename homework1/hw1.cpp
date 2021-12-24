@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    std::string line;
+    string line;
     int    xn=0;
     int    yn=0;
     int    xr=0;
@@ -13,7 +13,7 @@ int main() {
     int    yl=0;
     double minr=1;
     double minl=1;
-    std::ifstream in("in.txt");
+    ifstream in("in.txt");
         in >> xn >> yn;
 
         int x =0;
@@ -24,7 +24,7 @@ int main() {
                     continue;
                 }
                 double cs=(xn*x+yn*y)/(sqrt(x*x+y*y)*sqrt(xn*xn+yn*yn));
-                cs=std::round(cs * 10000000000.0) / 10000000000.0;
+                cs=round(cs * 10000000000.0) / 10000000000.0;
                 if (cs-minl <= 0 && (xn*y-yn*x)>0)
                 {
                     minl = cs;
@@ -40,8 +40,8 @@ int main() {
                 }
             }
     in.close();
-    std::cout << "Leftmost: " << xr << " " << yr << "\n";
-    std::cout << "Rightmost: " << xl << " " << yl << "\n";
+    cout << "Leftmost: " << xr << " " << yr << "\n";
+    cout << "Rightmost: " << xl << " " << yl << "\n";
 
     return 0;
 }
