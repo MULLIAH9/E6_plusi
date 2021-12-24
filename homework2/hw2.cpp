@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
         infile >> h;
 
         Vek v;
-        infile >> vx >> vy;
+        infile >> v.x >> v.y;
         int interval = 0;
         int size = 0;
 
@@ -32,8 +32,7 @@ int main(int argc, char** argv) {
             int target
             if (v.x > 0) {
                 target=interval;
-                {
-                 else 
+            }else{ 
                  interval - 1;
                 }   
             if (target < 0) {
@@ -70,7 +69,8 @@ int main(int argc, char** argv) {
                 }
             } else {
                 v.x * =-1;
-            }
-        }
+                }
+           }
+       }
     }
 }
