@@ -43,10 +43,10 @@ int main(int argc, char** argv) {
             if (target > size - 1) {
                 double x_w, h_w;
                 if (infile >> x_w >> h_w) {
-                    wall.push_back(std::make_pair(x_w, h_w));
+                    wall.push_back(make_pair(x_w, h_w));
                     size++;
                 } else {
-                    std::cout << size<< "\n";
+                    cout << size<< "\n";
                     return 0;
                 }
 
