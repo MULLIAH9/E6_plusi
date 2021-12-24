@@ -13,9 +13,8 @@ typedef struct Vek{
 };
 
 
-int main(int argc, char** argv) {
-    if (argc == 2) {
-        ifstream infile(argv[1]);
+int main(int argc, char** argv){
+        ifstream infile("in.txt");
 
         vector<Vek>wall;
         double h;
@@ -29,29 +28,35 @@ int main(int argc, char** argv) {
         int size = 0;
 
         while (true) {
-            int target
+            int target;
+            
             if (v.x > 0) {
                 target=interval;
-            }else{ 
+            }
+            else { 
                  interval - 1;
-                }   
+                 }
             if (target < 0) {
                 cout << "0\n";
                 return 0;
             }
+            
             if (target > size - 1) {
-                double x_w, h_w;
+                double x_w, 
+                double h_w;
+                
                 if (infile >> x_w >> h_w) {
-                    wall.push_back(make_pair(x_w, h_w));
+                    wall.push_back(Vek(x_w, h_w));
                     size++;
-                } else {
+                }
+                else {
                     cout << size<< "\n";
                     return 0;
-                }
+                     }
 
             }
 
-            double t =abs((x - wall[target].x) / vx);
+            double t =abs((x - wall[target].x) / v.x);
 
             x = wall[target].x;
             h = h + v.y * t + g * t * t/2;
@@ -61,16 +66,17 @@ int main(int argc, char** argv) {
                cout << interval <<endl;
                 return 0;
             }
+            
             if (h > wall[target].y) {
-                if (v.x > 0) {
+                if (v.x > 0) { 
                     interval++;
-                    else
-                    interval--;
                 }
-            } else {
-                v.x * =-1;
+                    else {
+                     interval--;
+                         }
+                }         
+                    else {
+                     v.x *=-1;
+                         }
                 }
-           }
-       }
-    }
 }
