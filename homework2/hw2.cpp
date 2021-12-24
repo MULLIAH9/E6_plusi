@@ -42,7 +42,7 @@ int main(int argc, char** argv){
             }
             
             if (target > size - 1) {
-                double x_w, 
+                double x_w;
                 double h_w;
                 
                 if (infile >> x_w >> h_w) {
