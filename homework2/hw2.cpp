@@ -6,16 +6,16 @@
 using namespace std;
  
 const double g = -9.81;
-
-typedef struct Vek{
+struct Vek{
     double x;
     double y;
 };
 
 
 int main(int argc, char** argv){
-        ifstream infile("in.txt");
-
+        if (argc == 2) {
+        ifstream infile(argv[1]);
+         
         vector<Vek>wall;
         double h;
         double x = 0;
@@ -42,11 +42,13 @@ int main(int argc, char** argv){
             }
             
             if (target > size - 1) {
-                double x_w;
+                double x_w; 
                 double h_w;
-                
+                Vek a=Vek();
                 if (infile >> x_w >> h_w) {
-                    wall.push_back(Vek(x_w, h_w));
+                    a.x=x_w;
+                    a.y=h_w;
+                    wall.push_back(a);
                     size++;
                 }
                 else {
@@ -78,5 +80,7 @@ int main(int argc, char** argv){
                     else {
                      v.x *=-1;
                          }
-                }
+    
+        }
+}
 }
